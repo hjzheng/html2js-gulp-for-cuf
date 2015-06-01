@@ -7,10 +7,11 @@ Just a html2js tool for cuf team
 - ```npm install```
 - Run command ```FILE_NAME=xxx.js gulp```
 
-**params**
+Params
 
-| Name | Description | Default Value |
-| ---- | ----------- | ------------- |
+| Name | Description  | Default Value |
+| :---- | -----------: | -------------: |
 | FILE_NAME |  The concat file name | all.js |
-| MODULE_NAME | The template module name | cuf.tamplate |
+| MODULE_NAME | The template module name | cuf.template |
+
 
