@@ -9,7 +9,7 @@ Just a html2js tool for cuf team
 
 **params**
 | :Name | :description | :default value |
-| ---- | ----------- | ------------- |
-| FILE_NAME |  The concat file name | all.js |
+| ----- | ------------ | -------------- |
+| FILE_NAME | The concat file name | all.js |
 | MODULE_NAME | The template module name | cuf.tamplate |
 
