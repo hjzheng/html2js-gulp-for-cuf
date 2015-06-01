@@ -8,7 +8,7 @@ Just a html2js tool for cuf team
 - Run command ```FILE_NAME=xxx.js gulp```
 
 **params**
-| :Name | :description | :default value |
+| Name  | Description  | Default Value |
 | ----- | ------------ | -------------- |
 | FILE_NAME | The concat file name | all.js |
 | MODULE_NAME | The template module name | cuf.tamplate |
