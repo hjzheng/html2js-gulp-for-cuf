@@ -5,6 +5,7 @@ var clean = require("gulp-clean");
 
 //read env variable, you can use command "FILE_NAME=test.js gulp"
 var fileName = process.env.FILE_NAME || "all.js";
+var moduleName = process.env.MODULE_NAME || "cuf.template";
 
 gulp.task('clean', function(){
    return gulp.src(['./tmp', './dist'])
@@ -14,7 +15,7 @@ gulp.task('clean', function(){
 gulp.task('html2js', function() {
    return gulp.src("./src/template/*.html")
     .pipe(ngHtml2Js({
-        moduleName: "cuf.template",
+        moduleName: moduleName,
         prefix: "template/"
     }))
     .pipe(gulp.dest("./tmp/template"));
