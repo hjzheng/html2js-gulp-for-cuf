@@ -12,6 +12,5 @@ Params
 | Name | Description  | Default Value |
 | :---- | -----------: | -------------: |
 | FILE_NAME |  The concat file name | all.js |
-| MODULE_NAME | The template module name | cuf.template |
 
 
