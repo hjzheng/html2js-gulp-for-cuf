@@ -13,4 +13,7 @@ Params
 | :---- | -----------: | -------------: |
 | FILE_NAME |  The concat file name | all.js |
 
+[gulp相关资料](https://github.com/hjzheng/CUF_meeting_knowledge_share/issues/33)
+
+
 
