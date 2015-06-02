@@ -14,32 +14,32 @@ var _uglify = false;
 var _cssmini = false;
 var _moduleName = "cuf.template";
 
-gulp.task('buildcss', function(){
-    return gulp.src('./src/css/*.css')
-        .pipe(gulpif(_cssmini, minifyCss()))
-        .pipe(gulp.dest("./dist/css"));
+gulp.task('buildcss', ['clean'], function(){
+   return gulp.src('./src/css/*.css')
+    .pipe(gulpif(_cssmini, minifyCss()))
+    .pipe(gulp.dest("./dist/css"));
 });
 
 gulp.task('clean', function(){
-    return gulp.src(['./tmp', './dist/js', './dist/css'])
-        .pipe(clean());
+   return gulp.src('./dist')
+    .pipe(clean({force: true}));
 });
 
-gulp.task('buildjs', function() {
+gulp.task('buildjs', ['clean'], function() {
+   
+   var jsStream = gulp.src("./src/js/*.js"),
+       htmlStream = gulp.src("./src/template/*.html");
 
-    var jsStream = gulp.src("./src/js/*.js"),
-        htmlStream = gulp.src("./src/template/*.html");
-
-    htmlStream.pipe(ngHtml2Js({
+   htmlStream.pipe(ngHtml2Js({
         moduleName: _moduleName,
         prefix: "template/"
-    }));
+   }));
 
-    return eventStream.merge(jsStream, htmlStream)
-        .pipe(concat(_fileName))
-        .pipe(ngAnnotate())
-        .pipe(gulpif(_uglify, uglify()))
-        .pipe(gulp.dest("./dist/js"))
+   return eventStream.merge(jsStream, htmlStream)
+    .pipe(concat(_fileName))
+    .pipe(ngAnnotate())
+    .pipe(gulpif(_uglify, uglify()))
+    .pipe(gulp.dest("./dist/js"))
 });
 
 gulp.task('default', ['clean', 'buildjs', 'buildcss']);
