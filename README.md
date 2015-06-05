@@ -15,6 +15,7 @@ Params
 --uglify
 --cssmini
 --template-module-name ${{moduleName}}
+--app-module-name ${{moduleName}}
 ```
 
 [gulp相关资料](https://github.com/hjzheng/CUF_meeting_knowledge_share/issues/33)

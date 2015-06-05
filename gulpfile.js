@@ -19,6 +19,8 @@ var _fileName = _.env['concat-file-name'] || "all.js";
 var _uglify = _.env.uglify || false;
 var _cssmini = _.env.cssmini || false;
 var _moduleName = _.env['template-module-name'] || "cuf.template";
+var _appModuleName = _.env['app-module-name'];
+
 /*
  --file-name ${{fileName}}
  --uglify
@@ -41,6 +43,17 @@ gulp.task('buildjs', ['clean'], function() {
 
     var jsStream = gulp.src("./src/js/*.js"),
         htmlStream = gulp.src("./src/template/*.html");
+
+    //_.log(_appModuleName);
+
+    var configObj = {};
+    configObj[_appModuleName] = [
+        _moduleName
+    ];
+
+    //_.log(configObj);
+
+    jsStream.pipe(plugins.if(typeof _appModuleName !== 'undefined', plugins.angularExtender(configObj)));
 
     htmlStream.pipe(plugins.ngHtml2js({
         moduleName: _moduleName,
